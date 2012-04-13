@@ -209,7 +209,7 @@ if ( isset($_POST['style']) ) {
 						if (isset($VERSION_LIST)) {
 							echo '<ul><b>Switch to version:</b>';
 							foreach($VERSION_LIST as $key => $l) {
-								if( $l != $MASTER ) {
+								if( $l != $JQM_VERSION ) {
 									$version = explode( "-", $l );
 									$version[1] = strtoupper($version[1]);
 									$version[1] = implode( "", explode( ".", $version[1] ) );
