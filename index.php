@@ -203,13 +203,13 @@ if ( isset($_POST['style']) ) {
 				<div class="tb-button" id="version-select">
 					<img src="images/jqm_logo_small.png" alt="jQuery Mobile"/>
 					<img id="version-select-arrow" src="images/version_select_arrow.png" alt=" " />
-					<div id="current-version">Version 1.1.0 RC2</div>
+					<div id="current-version">Version 1.0.1</div>
 					
 					<?php
 						if (isset($VERSION_LIST)) {
 							echo '<ul><b>Switch to version:</b>';
 							foreach($VERSION_LIST as $key => $l) {
-								if( $l != $JQM_VERSION ) {
+								if( $l != $MASTER ) {
 									$version = explode( "-", $l );
 									$version[1] = strtoupper($version[1]);
 									$version[1] = implode( "", explode( ".", $version[1] ) );
