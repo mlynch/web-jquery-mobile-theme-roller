@@ -1,6 +1,6 @@
 <?php
 require_once( 'version.php' );
-require_once( 'upgrade/upgrade.php' );
+require_once( '../upgrade/upgrade.php' );
 if ( isset($_GET['style_id']) ) {
 	$style_id = $_GET['style_id'];
 }
@@ -31,7 +31,7 @@ if ( isset($_POST['style']) ) {
 	<script src="js/app.js"></script>
 	<script src="js/ui.js"></script>
 	<script src="js/kuler.js"></script>
-	<script src="upgrade/upgrade.js"></script>
+	<script src="../upgrade/upgrade.js"></script>
 </head>
 <body>
 	
