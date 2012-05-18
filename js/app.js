@@ -804,6 +804,42 @@ TR.initDialogs = function() {
             }
         }
     }));
+
+	$( ".dialog#newColor" ).dialog({
+		autoOpen: false,
+		width: 450,
+		height: 260,
+		resizable: false,
+		draggable: false,
+		buttons: {
+			"Cancel": function() { 
+				$( ".dialog#newColor" ).dialog( "close" ); 
+			},
+			"Submit": function() {
+				var color = $( "#newColorInput" ).val().toLowerCase();
+				color = /^{rgb|#}/.test( color ) ? color : "#" + color;
+				if ( color.length) {
+					$.tr.addMostRecent( color, $( this ).data( "swatch" ) );
+				}
+				$( ".dialog#newColor" ).dialog( "close" );
+			}
+		},
+		open: function( event, ui ) {
+			var currentColor = $.tr.rgbtohex( $( this ).data( "swatch" ).css( "background-color" ) );
+			$( "#newColorInput" )
+				.val( currentColor )
+				.next().css( "background-color", currentColor )
+				.end()
+				.keyup( function( event ) {
+					var input = $( this );
+					if ( event.keyCode === $.ui.keyCode.ENTER ) {
+						input.closest( ".ui-dialog" ).find( "button" ).eq( 1 ).click();
+					}
+					input.next().css( "background-color", input.val() );
+				});
+		}
+	});
+		
 	
 	//ajax call performed when share link is clicked
 	$( "#share-button" ).click(function(e) {
